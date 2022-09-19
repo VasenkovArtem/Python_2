@@ -1,4 +1,14 @@
-def test_example(vectorizer, corpus, feature_names_t, matrix_t):
+def test_example(vectorizer, corpus: [str], feature_names_t: [str],
+                 matrix_t: [[int]]) -> bool:
+    """Checks the correct operation of the fit_transform and get_feature_names
+    methods of an instance of the CountVectorizer class on the example
+    of the received text corpus and the correct list of unique words and
+    the term-document matrix
+    vectorizer - instance of class CountVectorizer
+    corpus: [str] - list of text documents
+    feature_names_t: [str] - correct list of unique words of corpus
+    matrix_t: [[int]] - correct term-document matrix of corpus
+    Returns a boolean value of the result of the check"""
     matrix = vectorizer.fit_transform(corpus)
     feature_names = vectorizer.get_feature_names()
     return feature_names == feature_names_t and matrix == matrix_t
